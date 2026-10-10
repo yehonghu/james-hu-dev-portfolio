@@ -77,6 +77,7 @@ export default function CommandPalette({
     { icon: <ArrowUpRight size={15} />, label: "Go to Capabilities", hint: "Sections", run: go(() => scrollTo("#services")) },
     { icon: <ArrowUpRight size={15} />, label: "Go to Process", hint: "Sections", run: go(() => scrollTo("#process")) },
     { icon: <ArrowUpRight size={15} />, label: "Go to About", hint: "Sections", run: go(() => scrollTo("#about")) },
+    { icon: <ArrowUpRight size={15} />, label: "Go to Notes", hint: "Sections", run: go(() => scrollTo("#notes")) },
     { icon: <ArrowUpRight size={15} />, label: "Go to Contact", hint: "Sections", run: go(() => scrollTo("#contact")) },
   ];
 

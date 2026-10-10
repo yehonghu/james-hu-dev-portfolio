@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>James Hu — Notes</title>
+    <link>https://yehonghu.github.io/james-hu-dev-portfolio/</link>
+    <description>Short technical write-ups from real work by Yehong (James) Hu, full-stack software developer in Toronto.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 10 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>30MB of PNGs → 1.5MB of WebP</title>
+      <link>https://yehonghu.github.io/james-hu-dev-portfolio/#notes</link>
+      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
+      <description>My portfolio's screenshots weighed 30.8MB. Converting them to WebP cut 95% of the payload — here's the exact process.</description>
+    </item>
+    <item>
+      <title>CI from zero: giving BookEase a build pipeline</title>
+      <link>https://yehonghu.github.io/james-hu-dev-portfolio/#notes</link>
+      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
+      <description>BookEase shipped with no CI — every push was 'hope it builds'. Adding a 20-line GitHub Actions workflow changed that.</description>
+    </item>
+  </channel>
+</rss>

@@ -9,6 +9,7 @@ import Work from "@/components/Work";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import About from "@/components/About";
+import Notes from "@/components/Notes";
 import Contact, { Footer } from "@/components/Contact";
 import CanvasParticleField from "@/components/CanvasParticleField";
 
@@ -25,6 +26,7 @@ export default function Home() {
           <Services />
           <Process />
           <About />
+          <Notes />
           <Contact />
         </main>
         <Footer />

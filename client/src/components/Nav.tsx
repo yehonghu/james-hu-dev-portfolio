@@ -11,6 +11,7 @@ const LINKS = [
   { href: "#services", label: "Capabilities" },
   { href: "#process", label: "Process" },
   { href: "#about", label: "About" },
+  { href: "#notes", label: "Notes" },
 ];
 
 function AvailabilityBadge() {
