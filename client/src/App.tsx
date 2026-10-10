@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch, Router as WouterRouter } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ScrollProgress from "./components/ScrollProgress";
+import CommandPalette, { useCommandPalette } from "./components/CommandPalette";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 
@@ -25,8 +26,9 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider
         defaultTheme="dark"
-        // switchable
+        switchable
       >
+        <PaletteHost />
         <TooltipProvider>
           <ScrollProgress />
           <Toaster />
@@ -37,6 +39,11 @@ function App() {
       </ThemeProvider>
     </ErrorBoundary>
   );
+}
+
+function PaletteHost() {
+  const { open, setOpen } = useCommandPalette();
+  return <CommandPalette open={open} setOpen={setOpen} />;
 }
 
 export default App;

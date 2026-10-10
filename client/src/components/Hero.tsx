@@ -79,7 +79,7 @@ export default function Hero() {
 
           <motion.p
             {...line(4)}
-            className="mt-8 max-w-[560px] text-[16px] leading-relaxed text-slate-200/90 drop-shadow-[0_2px_16px_rgba(4,8,22,0.75)] md:text-[18px]"
+            className="mt-8 max-w-[560px] text-[16px] leading-relaxed text-slate-600 dark:text-slate-200/90 dark:drop-shadow-[0_2px_16px_rgba(4,8,22,0.75)] md:text-[18px]"
           >
             I&apos;m <span className="font-medium text-foreground">James Hu</span>, a Toronto-based full-stack
             software developer — Centennial College, Software Engineering Technology (GPA 3.7). I build
