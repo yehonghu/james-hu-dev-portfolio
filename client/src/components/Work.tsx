@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 import { ASSETS } from "@/lib/assets";
 import { Reveal, SectionLabel } from "./Reveal";
+import BookEaseDeepDive from "./BookEaseDeepDive";
 
 type ProjectLink = {
   href: string;
@@ -29,6 +30,7 @@ type IndexProject = {
   description: string;
   href: string;
   sourceHref: string;
+  repo: string;
 };
 
 const CASES: CaseStudy[] = [
@@ -58,6 +60,7 @@ const PROJECT_INDEX: IndexProject[] = [
     description: "A live local-service marketplace with role-aware booking, provider offers, account controls, and operations workflow.",
     href: "https://bookease-5e97.onrender.com",
     sourceHref: "https://github.com/yehonghu/BookEase-COMP313-Group6-Final",
+    repo: "BookEase-COMP313-Group6-Final",
   },
   {
     src: ASSETS.psychMindLive,
@@ -66,6 +69,7 @@ const PROJECT_INDEX: IndexProject[] = [
     description: "An editorial psychology learning experience shaped around guided modules, concept review, and practice.",
     href: "https://yehonghu.github.io/psychology-study/",
     sourceHref: "https://github.com/yehonghu/psychology-study",
+    repo: "psychology-study",
   },
   {
     src: ASSETS.findHouseLive,
@@ -74,6 +78,7 @@ const PROJECT_INDEX: IndexProject[] = [
     description: "A casebook-led residence browser with cinematic interiors, refined navigation, and motion-based exploration.",
     href: "https://yehonghu.github.io/find-house-portfolio/",
     sourceHref: "https://github.com/yehonghu/find-house-portfolio",
+    repo: "find-house-portfolio",
   },
   {
     src: ASSETS.ourPlanetLive,
@@ -82,6 +87,7 @@ const PROJECT_INDEX: IndexProject[] = [
     description: "A content-first environmental website that pairs visual narrative with an accessible, focused reading flow.",
     href: "https://yehonghu.github.io/our-planet-environmental-website/",
     sourceHref: "https://github.com/yehonghu/our-planet-environmental-website",
+    repo: "our-planet-environmental-website",
   },
   {
     src: ASSETS.iphone15Live,
@@ -90,6 +96,7 @@ const PROJECT_INDEX: IndexProject[] = [
     description: "A responsive product presentation focused on visual detail, interaction polish, and premium information hierarchy.",
     href: "https://yehonghu.github.io/iphone15pro-portfolio/",
     sourceHref: "https://github.com/yehonghu/iphone15pro-portfolio",
+    repo: "iphone15pro-portfolio",
   },
   {
     src: ASSETS.gameLibraryLive,
@@ -98,6 +105,7 @@ const PROJECT_INDEX: IndexProject[] = [
     description: "A spatial game catalogue with an orbital visual language, collection state, and playful public demo flow.",
     href: "https://yehonghu.github.io/Group9_COMP308Lab1_Ex2/",
     sourceHref: "https://github.com/yehonghu/Group9_COMP308Lab1_Ex2",
+    repo: "Group9_COMP308Lab1_Ex2",
   },
 ];
 
@@ -194,6 +202,8 @@ export default function Work() {
           {CASES.map((study, index) => <CaseBlock key={study.id} study={study} index={index} />)}
         </div>
 
+        <BookEaseDeepDive />
+
         <div className="mt-28 border-t border-border pt-20 md:mt-36 md:pt-24">
           <Reveal>
             <SectionLabel label="Complete Project Index" index="02" />
@@ -202,14 +212,16 @@ export default function Work() {
               This is the live index of the portfolio’s upgraded software projects. Each glass card leads directly to the current public build and its GitHub source—without repeating the portfolio itself as a project.
             </p>
           </Reveal>
-          <div className="scene mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {PROJECT_INDEX.map((project, index) => (
-              <Reveal key={project.title} delay={index * 0.055} depth={index * 9}>
+          <div className="scene mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {PROJECT_INDEX.map((project, index) => {
+              const wide = index === 0;
+              return (
+              <Reveal key={project.title} delay={index * 0.055} depth={index * 9} className={wide ? "sm:col-span-2" : ""}>
                 <motion.article
-                  className="liquid-card group"
+                  className="liquid-card group h-full"
                 >
                   <a href={project.href} target="_blank" rel="noreferrer" className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-                    <div className="relative aspect-[16/10] overflow-hidden rounded-t-[inherit]">
+                    <div className={`relative overflow-hidden rounded-t-[inherit] ${wide ? "aspect-[21/10]" : "aspect-[16/10]"}`}>
                       <img src={project.src} alt={`${project.title} current live homepage`} loading="lazy" className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.006]" />
                       <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-slate-950/62 via-transparent to-transparent" />
                       <span className="liquid-status absolute bottom-3 left-3">{project.status} <ArrowUpRight size={12} /></span>
@@ -222,18 +234,44 @@ export default function Work() {
                       {project.title}<ArrowUpRight size={15} className="text-primary transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </a>
                     <p className="relative mt-2 min-h-[42px] text-[12px] leading-relaxed text-muted-foreground">{project.description}</p>
-                    <div className="relative mt-5 flex items-center justify-between gap-3">
+                    <div className="relative mt-5 flex flex-wrap items-center justify-between gap-3">
                       <a href={project.href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-[11px] font-semibold text-primary transition-opacity hover:opacity-75">
                         Open project <ExternalLink size={12} />
                       </a>
-                      <a href={project.sourceHref} target="_blank" rel="noreferrer" aria-label={`View ${project.title} source code`} className="liquid-code-link">
-                        <Github size={12} /> Code
-                      </a>
+                      <span className="inline-flex items-center gap-2">
+                        <img
+                          src={`https://img.shields.io/github/last-commit/yehonghu/${project.repo}`}
+                          alt={`${project.title} last commit`}
+                          loading="lazy"
+                          className="h-5"
+                        />
+                        <a href={project.sourceHref} target="_blank" rel="noreferrer" aria-label={`View ${project.title} source code`} className="liquid-code-link">
+                          <Github size={12} /> Code
+                        </a>
+                      </span>
                     </div>
                   </div>
                 </motion.article>
               </Reveal>
-            ))}
+              );
+            })}
+            <Reveal delay={0.33} depth={54} className="sm:col-span-2 lg:col-span-1">
+              <a
+                href="https://github.com/yehonghu?tab=repositories"
+                target="_blank"
+                rel="noreferrer"
+                className="liquid-card group flex h-full min-h-[220px] flex-col items-start justify-center gap-3 p-8"
+              >
+                <Github size={26} className="text-primary" />
+                <p className="font-display text-[24px] font-semibold leading-tight text-titanium">
+                  More experiments<br />on GitHub
+                </p>
+                <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-primary">
+                  Explore all repositories
+                  <ArrowUpRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
+              </a>
+            </Reveal>
           </div>
         </div>
       </div>

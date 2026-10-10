@@ -18,7 +18,7 @@ export default function Home() {
       <CanvasParticleField />
       <div className="relative z-10">
         <Nav />
-        <main>
+        <main id="main">
           <Hero />
           <Stats />
           <Work />

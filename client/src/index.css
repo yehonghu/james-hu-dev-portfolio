@@ -1309,3 +1309,32 @@
 @keyframes cmdk-pop {
   from { opacity: 0; transform: translateY(-8px) scale(0.98); }
 }
+
+/* ================= Accessibility ================= */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 200;
+  padding: 0.65rem 1.1rem;
+  border-radius: 0.75rem;
+  font-size: 13.5px;
+  font-weight: 600;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 25%);
+  transition: top 160ms ease;
+}
+
+.skip-link:focus-visible {
+  top: 0.9rem;
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .command-palette [cmdk-overlay],
+  .command-palette [cmdk-root] {
+    animation: none;
+  }
+}

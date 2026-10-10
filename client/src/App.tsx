@@ -28,6 +28,7 @@ function App() {
         defaultTheme="dark"
         switchable
       >
+        <SkipLink />
         <PaletteHost />
         <TooltipProvider>
           <ScrollProgress />
@@ -44,6 +45,21 @@ function App() {
 function PaletteHost() {
   const { open, setOpen } = useCommandPalette();
   return <CommandPalette open={open} setOpen={setOpen} />;
+}
+
+function SkipLink() {
+  return (
+    <a
+      href="#main"
+      className="skip-link"
+      onClick={(e) => {
+        document.querySelector("#main")?.scrollIntoView();
+        e.currentTarget.blur();
+      }}
+    >
+      Skip to content
+    </a>
+  );
 }
 
 export default App;
