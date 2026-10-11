@@ -3,6 +3,7 @@ import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 import { ASSETS } from "@/lib/assets";
 import { Reveal, SectionLabel } from "./Reveal";
 import BookEaseDeepDive from "./BookEaseDeepDive";
+import AuthCaseStudy from "./AuthCaseStudy";
 
 type ProjectLink = {
   href: string;
@@ -203,6 +204,8 @@ export default function Work() {
         </div>
 
         <BookEaseDeepDive />
+
+        <AuthCaseStudy />
 
         <div className="mt-28 border-t border-border pt-20 md:mt-36 md:pt-24">
           <Reveal>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yehonghu.github.io/james-hu-dev-portfolio/sitemap.xml
