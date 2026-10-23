@@ -25,6 +25,7 @@ export const ASSETS = {
   psychMind: `${base}/manus-storage/psychmind_portfolio_preview.webp`,
   gameLibrary: `${base}/manus-storage/group9_game_portfolio_preview.webp`,
   bookeaseLive: `${base}/manus-storage/bookease_live_2026.webp`,
+  etteLive: `${base}/manus-storage/ette_pohub_process_2026.svg`,
   findHouseLive: `${base}/manus-storage/findhouse_live_2026.webp`,
   psychMindLive: `${base}/manus-storage/psychmind_live_2026.webp`,
   ourPlanetLive: `${base}/manus-storage/ourplanet_live_2026.webp`,

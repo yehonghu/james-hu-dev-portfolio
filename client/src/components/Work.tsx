@@ -3,6 +3,7 @@ import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 import { ASSETS } from "@/lib/assets";
 import { Reveal, SectionLabel } from "./Reveal";
 import BookEaseDeepDive from "./BookEaseDeepDive";
+import EtteDeepDive from "./EtteDeepDive";
 import AuthCaseStudy from "./AuthCaseStudy";
 
 type ProjectLink = {
@@ -36,6 +37,23 @@ type IndexProject = {
 
 const CASES: CaseStudy[] = [
   {
+    id: "ette-po-hub",
+    category: "Full-Stack Product · Operations System",
+    title: "ETTE PO Hub",
+    tagline: "Eleven steps between “we need it” and “we paid for it” — and every one of them enforced.",
+    description:
+      "A complete kitchen purchase-order system for a boutique hotel, designed from a blank page and then built end to end. An 11-step cycle — need, request, tiered approval, order, receiving, invoice, three-way match, payment, close — with CAD approval limits, strict separation of the three approvals, automatic exception handling, and a live process map. Eight role accounts, rules enforced by the API rather than the interface, and a seeded demo you can run through the whole cycle.",
+    tags: ["React 19", "TypeScript", "Express", "SQLite", "JWT + RBAC", "Render"],
+    images: [{ src: ASSETS.etteLive, alt: "ETTE PO Hub 11-step purchasing cycle diagram" }],
+    layout: "left",
+    links: [
+      { href: "https://ette-po-hub.onrender.com", label: "Open live app", kind: "live" },
+      { href: "https://yehonghu.github.io/ette-po-hub/", label: "Instant demo", kind: "live" },
+      { href: "https://github.com/yehonghu/ette-po-hub", label: "View source", kind: "github" },
+    ],
+    accent: "from-emerald-300 via-teal-300 to-amber-300",
+  },
+  {
     id: "bookease",
     category: "Full-Stack Product · Toronto Public Beta",
     title: "BookEase",
@@ -44,7 +62,7 @@ const CASES: CaseStudy[] = [
       "A live, full-stack service marketplace built for the Toronto/GTA launch. Customers publish requests, providers respond with offers, and role-aware workflows keep availability, bookings, reviews, profile settings, and administration connected in one dependable system.",
     tags: ["React", "Node.js / Express", "MongoDB Atlas", "JWT", "Role-Aware UX", "Render"],
     images: [{ src: ASSETS.bookeaseLive, alt: "Current BookEase Toronto public beta homepage" }],
-    layout: "left",
+    layout: "right",
     links: [
       { href: "https://bookease-5e97.onrender.com", label: "Open live MVP", kind: "live" },
       { href: "https://github.com/yehonghu/BookEase-COMP313-Group6-Final", label: "View source", kind: "github" },
@@ -54,6 +72,15 @@ const CASES: CaseStudy[] = [
 ];
 
 const PROJECT_INDEX: IndexProject[] = [
+  {
+    src: ASSETS.etteLive,
+    title: "ETTE PO Hub",
+    status: "Live operations system",
+    description: "A full-cycle kitchen purchase-order system: 11 enforced steps, tiered CAD approvals, three-way matching, and eight role accounts — designed as a process, then built as software.",
+    href: "https://ette-po-hub.onrender.com",
+    sourceHref: "https://github.com/yehonghu/ette-po-hub",
+    repo: "ette-po-hub",
+  },
   {
     src: ASSETS.bookeaseLive,
     title: "BookEase",
@@ -202,6 +229,8 @@ export default function Work() {
         <div className="mt-20 flex flex-col gap-28 md:mt-28 md:gap-36">
           {CASES.map((study, index) => <CaseBlock key={study.id} study={study} index={index} />)}
         </div>
+
+        <EtteDeepDive />
 
         <BookEaseDeepDive />
 

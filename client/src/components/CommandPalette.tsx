@@ -82,6 +82,8 @@ export default function CommandPalette({
   ];
 
   const projects: Item[] = [
+    { icon: <ArrowUpRight size={15} />, label: "ETTE PO Hub — live app", hint: "External", run: go(openExternal("https://ette-po-hub.onrender.com")) },
+    { icon: <Github size={15} />, label: "ETTE PO Hub — source code", hint: "GitHub", run: go(openExternal("https://github.com/yehonghu/ette-po-hub")) },
     { icon: <ArrowUpRight size={15} />, label: "BookEase — live demo", hint: "External", run: go(openExternal("https://bookease-5e97.onrender.com")) },
     { icon: <Github size={15} />, label: "BookEase — source code", hint: "GitHub", run: go(openExternal("https://github.com/yehonghu/BookEase-COMP313-Group6-Final")) },
     { icon: <ArrowUpRight size={15} />, label: "Game Library — live demo", hint: "External", run: go(openExternal("https://yehonghu.github.io/Group9_COMP308Lab1_Ex2/")) },
